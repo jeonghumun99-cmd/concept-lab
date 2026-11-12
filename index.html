@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Concept Lab | 개념을 깊이 이해하다</title>
+<style>
+:root{font-family:system-ui,-apple-system,'Noto Sans KR',sans-serif;color:#24223d;background:#f6f5fc}*{box-sizing:border-box}body{margin:0;min-height:100vh}button,input{font:inherit}button{cursor:pointer}.shell{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr}.hero{background:linear-gradient(145deg,#211b58,#624bc4 65%,#aa8bea);color:white;padding:clamp(30px,6vw,90px);display:flex;flex-direction:column;justify-content:space-between}.brand{font-weight:850;font-size:23px}.hero h1{font-size:clamp(34px,4vw,58px);line-height:1.25;letter-spacing:-2px}.hero p{color:#e8e1ff;line-height:1.9}.chips{display:flex;flex-wrap:wrap;gap:10px}.chip{padding:10px 14px;background:#ffffff21;border:1px solid #ffffff45;border-radius:30px}.right{display:flex;align-items:center;justify-content:center;padding:30px}.panel{background:white;width:min(100%,460px);padding:36px;border-radius:24px;box-shadow:0 15px 50px #29215a13}.panel h2{margin:0 0 8px;font-size:28px}.muted{color:#77738b;font-size:14px;line-height:1.7}.tabs{display:flex;background:#f2f0fa;padding:5px;border-radius:12px;margin:24px 0}.tabs button{flex:1;border:0;border-radius:9px;background:transparent;padding:12px;color:#625d76}.tabs button.active{background:white;color:#6348cb;font-weight:750;box-shadow:0 2px 8px #20145714}label{display:block;margin:15px 0 7px;font-weight:650;font-size:14px}input{width:100%;border:1px solid #dedbe9;border-radius:11px;padding:13px;outline:0}input:focus{border-color:#775ee3;box-shadow:0 0 0 3px #775ee31c}.password{display:flex;gap:7px}.password input{min-width:0}.secondary{border:1px solid #ddd9ef;border-radius:10px;background:white;padding:0 12px}.primary{width:100%;border:0;border-radius:12px;background:#7155dd;color:white;padding:14px;font-weight:750;margin-top:22px}.primary:disabled{opacity:.6;cursor:wait}.message{margin-top:15px;padding:12px;border-radius:10px;background:#f0edff;color:#44318c;font-size:14px;line-height:1.5}.message.error{background:#fff0f0;color:#b02e3a}.hidden{display:none!important}.app{max-width:1050px;margin:0 auto;padding:28px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.welcome{background:linear-gradient(125deg,#302570,#8067e7);color:white;padding:38px;border-radius:22px;margin-top:35px}.welcome h1{margin:0 0 10px}.search{display:flex;gap:10px;margin-top:22px}.search input{background:white}.search select{border:0;border-radius:10px;padding:0 10px;background:white;color:#302570;min-width:90px}.search button{border:0;background:#241c57;color:white;border-radius:10px;padding:0 20px}.result{margin-top:24px;background:white;border:1px solid #eae7f4;border-radius:18px;padding:24px;line-height:1.8}.result h2{margin-top:0}.result h3{color:#4e3b9c;margin-bottom:5px}.result p{white-space:pre-wrap}.result ol{padding-left:22px}.result .status{color:#77738b}.search button:disabled{opacity:.6;cursor:wait}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:24px}.card{background:white;border-radius:18px;padding:22px;border:1px solid #eae7f4}.card h3{margin:8px 0}.card p{color:#6d6981;font-size:14px}.logout{background:white;border:1px solid #e2def1;padding:10px 14px;border-radius:10px}.hint{font-size:12px;color:#8b859b;margin-top:10px}@media(max-width:800px){.shell{grid-template-columns:1fr}.hero{min-height:230px;padding:30px}.hero h1{font-size:30px}.right{padding:20px}.panel{padding:26px}.result{margin-top:24px;background:white;border:1px solid #eae7f4;border-radius:18px;padding:24px;line-height:1.8}.result h2{margin-top:0}.result h3{color:#4e3b9c;margin-bottom:5px}.result p{white-space:pre-wrap}.result ol{padding-left:22px}.result .status{color:#77738b}.search button:disabled{opacity:.6;cursor:wait}.cards{grid-template-columns:1fr}.welcome{padding:26px}}
+</style>
+</head>
+<body>
+<div id="auth" class="shell">
+<section class="hero"><div class="brand">✦ Concept Lab</div><div><h1>궁금한 개념,<br>더 깊이 이해해요.</h1><p>기초부터 심화까지. 질문하고, 연결하고, 나만의 지식을 쌓는 공간.</p><div class="chips"><span class="chip">✧ 난이도별 학습</span><span class="chip">◎ 관련 질문</span><span class="chip">⌁ 개념 연결</span></div></div><small>Learn deeper. Think wider.</small></section>
+<section class="right"><div class="panel"><h2>환영합니다 👋</h2><p class="muted">계정을 만들고 새로운 학습을 시작해 보세요.</p><div class="tabs"><button id="loginTab" class="active" type="button">로그인</button><button id="signupTab" type="button">회원가입</button></div><form id="authForm"><div id="nicknameField" class="hidden"><label for="nickname">닉네임</label><input id="nickname" autocomplete="nickname" maxlength="30" placeholder="사용할 닉네임"></div><label for="email">이메일</label><input id="email" type="email" autocomplete="email" required placeholder="example@email.com"><label for="password">비밀번호</label><div class="password"><input id="password" type="password" autocomplete="current-password" required minlength="8" placeholder="8자 이상"><button class="secondary" id="togglePassword" type="button">표시</button></div><button class="primary" id="submit" type="submit">로그인</button></form><div id="message" class="message hidden" role="status" aria-live="polite"></div><p class="hint">비밀번호와 Supabase 비밀 키를 다른 사람에게 공유하지 마세요.</p></div></section>
+</div>
+<div id="app" class="app hidden"><div class="top"><div class="brand">✦ Concept Lab</div><button id="logout" class="logout">로그아웃</button></div><section class="welcome"><h1><span id="displayName">학습자</span>님, 무엇이 궁금한가요?</h1><p>배움의 시작은 좋은 질문입니다.</p><div class="search"><input id="conceptInput" placeholder="예: 양자역학, 미적분, 광합성"><select id="difficulty" aria-label="학습 난이도"><option>기초</option><option>중급</option><option>심화</option><option>대학</option></select><button id="conceptSearch">AI 학습</button></div></section><div id="result" class="result hidden" aria-live="polite"></div><div class="cards"><div class="card"><h3>📚 개념 정리</h3><p>쉽게 이해하는 개념 설명</p></div><div class="card"><h3>🧠 심화 학습</h3><p>기초에서 대학 수준까지</p></div><div class="card"><h3>❔ 관련 질문</h3><p>스스로 생각하는 질문</p></div></div><p class="muted">AI 설명은 참고 자료입니다. 중요한 내용은 신뢰할 수 있는 자료와 교차 확인하세요.</p></div>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+// 아래 두 값만 본인의 Supabase 프로젝트 값으로 바꾸세요.
+const SUPABASE_URL = 'https://mgpudrmvhdueoueokugj.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_sGwxaL6-LI2IgZE_nWtblQ_PHdKUScK';
+const configured = SUPABASE_URL.startsWith('https://') && !SUPABASE_ANON_KEY.startsWith('YOUR_');
+const supabase = configured ? createClient(SUPABASE_URL,SUPABASE_ANON_KEY) : null;
+const $=id=>document.getElementById(id);
+let mode='login';let busy=false;
+function msg(text,error=false){$('message').textContent=text;$('message').className='message'+(error?' error':'');}
+function clearMsg(){$('message').classList.add('hidden');$('message').textContent='';}
+function setMode(next){mode=next;clearMsg();$('loginTab').classList.toggle('active',next==='login');$('signupTab').classList.toggle('active',next==='signup');$('nicknameField').classList.toggle('hidden',next==='login');$('nickname').required=next==='signup';$('password').autocomplete=next==='signup'?'new-password':'current-password';$('submit').textContent=next==='signup'?'회원가입':'로그인';}
+function loading(value){busy=value;$('submit').disabled=value;$('submit').textContent=value?'처리 중...':(mode==='signup'?'회원가입':'로그인');}
+function friendly(e){const m=e?.message||'알 수 없는 오류';if(/Invalid login credentials/i.test(m))return '이메일 또는 비밀번호를 확인해 주세요.';if(/Email not confirmed/i.test(m))return '이메일 인증을 완료한 뒤 로그인해 주세요.';if(/User already registered/i.test(m))return '이미 가입된 이메일입니다.';if(/Password should be/i.test(m))return '비밀번호 조건을 확인해 주세요.';if(/rate limit/i.test(m))return '요청이 많습니다. 잠시 후 다시 시도해 주세요.';return m;}
+async function showSession(session){const user=session?.user;$('auth').classList.toggle('hidden',!!user);$('app').classList.toggle('hidden',!user);if(user){$('displayName').textContent=user.user_metadata?.username||'학습자';try{const {data}=await supabase.from('profiles').select('username').eq('id',user.id).maybeSingle();if(data?.username)$('displayName').textContent=data.username;}catch(e){console.warn('프로필 조회 실패',e);}}}
+$('loginTab').onclick=()=>setMode('login');$('signupTab').onclick=()=>setMode('signup');$('togglePassword').onclick=()=>{const p=$('password');p.type=p.type==='password'?'text':'password';$('togglePassword').textContent=p.type==='password'?'표시':'숨기기';};
+$('authForm').onsubmit=async e=>{e.preventDefault();if(busy)return;if(!configured){msg('먼저 index.html의 Supabase URL과 Publishable key를 설정해 주세요.',true);return;}const email=$('email').value.trim();const password=$('password').value;const username=$('nickname').value.trim();if(mode==='signup'&&!username){msg('닉네임을 입력해 주세요.',true);return;}loading(true);clearMsg();try{if(mode==='signup'){const {data,error}=await supabase.auth.signUp({email,password,options:{data:{username}}});if(error)throw error;if(data.session){await showSession(data.session);}else{msg('가입 요청이 접수됐습니다. 이메일 인증이 켜져 있다면 받은 편지함에서 인증 링크를 확인해 주세요. 이미 가입된 주소일 경우에도 보안상 동일하게 안내될 수 있습니다.');}}else{const {data,error}=await supabase.auth.signInWithPassword({email,password});if(error)throw error;await showSession(data.session);}}catch(err){msg(friendly(err),true);}finally{loading(false);}};
+$('logout').onclick=async()=>{if(!supabase)return;const {error}=await supabase.auth.signOut();if(error){alert(friendly(error));return;}await showSession(null);setMode('login');};
+function addText(parent,tag,text){const node=document.createElement(tag);node.textContent=text||'';parent.appendChild(node);return node;}
+let searching=false;
+$('conceptSearch').onclick=async()=>{
+ if(searching)return;
+ const topic=$('conceptInput').value.trim(),difficulty=$('difficulty').value;
+ if(!topic){alert('학습할 개념을 입력해 주세요.');return;}
+ const {data:{session},error:sessionError}=await supabase.auth.getSession();
+ if(sessionError||!session){alert('다시 로그인해 주세요.');return;}
+ searching=true;$('conceptSearch').disabled=true;$('conceptSearch').textContent='설명 생성 중...';
+ const box=$('result');box.classList.remove('hidden');box.replaceChildren();addText(box,'p','AI가 설명을 준비하고 있어요...');
+ try{
+  const response=await fetch('/api/explain',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+session.access_token},body:JSON.stringify({topic,difficulty})});
+  const payload=await response.json().catch(()=>({}));
+  if(!response.ok)throw Error(payload.error||'AI 요청 실패 ('+response.status+')');
+  box.replaceChildren();addText(box,'h2',payload.title||topic);addText(box,'p','난이도: '+difficulty);
+  for(const [label,key] of [['핵심 개념','summary'],['쉽게 이해하기','explanation'],['더 깊이 알아보기','advanced_content']]){addText(box,'h3',label);addText(box,'p',payload[key]);}
+  addText(box,'h3','생각해 볼 질문');const ol=document.createElement('ol');box.appendChild(ol);
+  for(const q of payload.questions||[])addText(ol,'li',q);
+  if(payload.saved===false)addText(box,'p','설명은 생성됐지만 학습 기록 저장은 실패했어요.');
+ }catch(err){box.replaceChildren();addText(box,'p','오류: '+err.message);}
+ finally{searching=false;$('conceptSearch').disabled=false;$('conceptSearch').textContent='AI 학습';}
+};
+$('conceptInput').onkeydown=e=>{if(e.key==='Enter')$('conceptSearch').click();};
+if(!configured){msg('설정 필요: index.html에 Supabase Project URL과 Publishable key를 입력하세요.',true);}else{const {data,error}=await supabase.auth.getSession();if(error)msg(friendly(error),true);await showSession(data?.session);supabase.auth.onAuthStateChange((_event,session)=>{setTimeout(()=>{showSession(session).catch(console.error);},0);});}
+</script>
+</body></html>
